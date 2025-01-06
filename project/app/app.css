@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-primary {
+    background-color: #FF4081;
+}
+
+.text-primary {
+    color: #FF4081;
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+}

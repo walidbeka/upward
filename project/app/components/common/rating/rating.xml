@@ -1,0 +1,12 @@
+<GridLayout columns="auto, auto" class="rating">
+    <StackLayout orientation="horizontal" col="0">
+        <Label repeat="{{ stars }}" 
+               text="★" 
+               class="star" 
+               color="{{ $index < value ? '#FFD700' : '#D3D3D3' }}" />
+    </StackLayout>
+    <Label col="1" 
+           text="{{ reviewsCount + ' تقييم' }}" 
+           class="reviews-count"
+           visibility="{{ showCount ? 'visible' : 'collapsed' }}" />
+</GridLayout>

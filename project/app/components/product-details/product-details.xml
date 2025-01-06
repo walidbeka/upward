@@ -1,0 +1,26 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+    <ActionBar title="{{ product.title }}" />
+    
+    <ScrollView>
+        <StackLayout padding="16">
+            <VideoPlayer src="{{ product.videoUrl }}" 
+                       autoplay="false" 
+                       controls="true"
+                       height="300" />
+            
+            <StackLayout class="product-info" padding="16">
+                <Label text="{{ product.title }}" class="text-2xl font-bold" />
+                <Label text="{{ product.price }} جنيه" class="text-xl text-primary" />
+                <Label text="{{ product.description }}" textWrap="true" class="text-gray-600" />
+                
+                <GridLayout columns="auto, *" class="seller-info" margin="16 0">
+                    <Image src="{{ product.seller.avatar }}" width="40" height="40" borderRadius="20" />
+                    <Label text="{{ product.seller.name }}" col="1" verticalAlignment="center" margin="0 8" />
+                </GridLayout>
+                
+                <Button text="أضف إلى السلة" tap="{{ addToCart }}" class="bg-primary text-white rounded-lg p-4" />
+                <Button text="اشتري الآن" tap="{{ buyNow }}" class="bg-black text-white rounded-lg p-4 m-t-2" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

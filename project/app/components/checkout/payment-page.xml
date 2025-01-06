@@ -1,0 +1,37 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+    <ActionBar title="الدفع" />
+    
+    <ScrollView>
+        <StackLayout padding="16">
+            <Label text="طريقة الدفع" class="section-title" />
+            <ListView items="{{ paymentMethods }}" class="payment-methods">
+                <ListView.itemTemplate>
+                    <GridLayout columns="auto, *" class="payment-method">
+                        <Image src="{{ icon }}" width="40" height="40" />
+                        <Label text="{{ name }}" col="1" verticalAlignment="center" />
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+            
+            <Label text="تفاصيل الطلب" class="section-title" />
+            <StackLayout class="order-summary">
+                <GridLayout columns="*, auto">
+                    <Label text="المجموع الفرعي" />
+                    <Label text="{{ subtotal }}" col="1" />
+                </GridLayout>
+                <GridLayout columns="*, auto">
+                    <Label text="الشحن" />
+                    <Label text="{{ shipping }}" col="1" />
+                </GridLayout>
+                <GridLayout columns="*, auto" class="total">
+                    <Label text="الإجمالي" class="font-bold" />
+                    <Label text="{{ total }}" col="1" class="font-bold" />
+                </GridLayout>
+            </StackLayout>
+            
+            <Button text="تأكيد الطلب" 
+                    tap="{{ confirmOrder }}" 
+                    class="bg-primary text-white rounded-lg" />
+        </StackLayout>
+    </ScrollView>
+</Page>

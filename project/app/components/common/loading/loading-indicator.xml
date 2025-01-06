@@ -1,0 +1,8 @@
+<GridLayout class="loading-container">
+    <ActivityIndicator busy="true" 
+                      color="#FF4081" 
+                      width="50" height="50" />
+    <Label text="{{ message }}" 
+           class="loading-message"
+           visibility="{{ message ? 'visible' : 'collapsed' }}" />
+</GridLayout>

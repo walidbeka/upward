@@ -1,0 +1,32 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="اكتشف المنتجات" />
+    
+    <GridLayout>
+        <ListView id="videoList" items="{{ products }}" itemTemplateSelector="selectTemplate">
+            <ListView.itemTemplates>
+                <template key="product">
+                    <GridLayout rows="*" columns="*">
+                        <VideoPlayer src="{{ videoUrl }}" 
+                                   autoplay="true" 
+                                   loop="true" 
+                                   controls="false" />
+                        
+                        <StackLayout verticalAlignment="bottom" padding="16">
+                            <Label text="{{ title }}" class="text-white text-lg font-bold" />
+                            <Label text="{{ price }} جنيه" class="text-white text-xl" />
+                            <Button text="اشتري الآن" tap="{{ onBuyTap }}" 
+                                    class="bg-primary text-white rounded-full" />
+                        </StackLayout>
+                        
+                        <Label text="إعلان" 
+                               class="bg-gray-800 text-white p-1 rounded"
+                               visibility="{{ isAd ? 'visible' : 'collapsed' }}"
+                               horizontalAlignment="right"
+                               verticalAlignment="top"
+                               margin="8" />
+                    </GridLayout>
+                </template>
+            </ListView.itemTemplates>
+        </ListView>
+    </GridLayout>
+</Page>

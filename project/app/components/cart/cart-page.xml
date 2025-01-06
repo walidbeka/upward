@@ -1,0 +1,36 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+    <ActionBar title="سلة المشتريات" />
+    
+    <GridLayout rows="*, auto">
+        <ListView items="{{ cartItems }}" row="0">
+            <ListView.itemTemplate>
+                <GridLayout columns="auto, *, auto" padding="8">
+                    <Image src="{{ thumbnailUrl }}" 
+                           width="60" height="60" 
+                           borderRadius="4" />
+                    <StackLayout col="1" margin="0 8">
+                        <Label text="{{ title }}" class="font-bold" />
+                        <Label text="{{ formattedPrice }}" class="text-primary" />
+                        <FlexboxLayout>
+                            <Button text="-" tap="{{ decreaseQuantity }}" 
+                                    class="quantity-btn" />
+                            <Label text="{{ quantity }}" class="quantity" />
+                            <Button text="+" tap="{{ increaseQuantity }}" 
+                                    class="quantity-btn" />
+                        </FlexboxLayout>
+                    </StackLayout>
+                    <Button text="×" tap="{{ remove }}" 
+                            col="2" class="remove-btn" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+        
+        <StackLayout row="1" class="cart-summary" padding="16">
+            <Label text="المجموع: {{ formattedTotal }}" class="total" />
+            <Button text="إتمام الشراء" 
+                    tap="{{ checkout }}" 
+                    class="bg-primary text-white rounded-lg"
+                    isEnabled="{{ hasItems }}" />
+        </StackLayout>
+    </GridLayout>
+</Page>
